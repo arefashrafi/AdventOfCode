@@ -1,10 +1,9 @@
 line = open('input.txt').readline()
-set_table = []
-data = list(line)
-for index, char in enumerate(data):
-    set_table.extend(char)
-    if (len(set_table) > 14):
-        set_table.pop(0)
-    if (len(set_table) == 14 and len(set_table) == len(set(set_table))):
+data_list = []
+for index, char in enumerate(line):
+    data_list.append(char)
+    if (len(data_list) > 4):
+        data_list.pop(0)
+    if (len(data_list) == len(set(data_list)) == 4):
         print(index+1)
         break
