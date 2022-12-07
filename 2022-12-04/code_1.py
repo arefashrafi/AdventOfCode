@@ -3,8 +3,7 @@ def main():
     intersected_assignments, no_intersection = 0, 0
     for line in lines:
         value = line.strip().split(',')
-        a = set(get_range(value[0]))
-        b = set(get_range(value[1]))
+        a, b = set(get_range(value[0])), set(get_range(value[1]))
         if ((a | b) == a or (a | b) == b):
             intersected_assignments += 1
         elif ((a & b) == set()):
@@ -15,8 +14,7 @@ def main():
 
 def get_range(range_string):
     range_array = range_string.split('-')
-    start, end = range_array[0], range_array[1]
-    return [*range(int(start), int(end) + 1, 1)]
+    return [*range(int(range_array[0]), int(range_array[1]) + 1, 1)]
 
 
 main()
