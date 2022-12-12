@@ -20,6 +20,10 @@ for index, line in enumerate(lines[:6]):
         key, value = line.split(":")
         current_monkey.items = [int(item) for item in value.split(',')]
     if "Operation" in line:
-        key, value = line.split(":")
-        current_monkey.operationn m = [int(item) for item in value.split(',')]
-    print(current_monkey)
+        key, value = line.strip().split(":")
+        current_monkey.operation = [
+            item for item in value.split(' ') if len(item) > 0]
+    if "Test" in line:
+        key, value = line.strip().split(":")
+        current_monkey.test[key].update(value)
+print(current_monkey)
